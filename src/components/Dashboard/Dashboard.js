@@ -77,10 +77,16 @@ const Dashboard = () => {
             display: flex;
             align-items: center;
             padding: 1rem 1.5rem;
+            width: 100%;
             color: #495057;
             text-decoration: none;
+            background: transparent;
+            border: none;
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
+            text-align: left;
+            font: inherit;
+            outline: none;
           }
           
           .sidebar-nav-item:hover,
