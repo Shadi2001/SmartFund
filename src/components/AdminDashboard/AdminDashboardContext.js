@@ -815,19 +815,10 @@ export const AdminDashboardProvider = ({ children }) => {
   };
 
   // Initialize data when component mounts - prioritize stats first
-  useEffect(() => {
-    // Load stats immediately for main dashboard
-    fetchAdminStats();
-    
-    // Defer other API calls to reduce initial latency
-    const timeoutId = setTimeout(() => {
-      fetchPendingContracts();
-      fetchUsers();
-      fetchNotifications();
-    }, 100); // Small delay to let stats load first
-    
-    return () => clearTimeout(timeoutId);
-  }, []);
+useEffect(() => {
+  fetchAdminStats();
+  fetchUsers();
+}, [fetchAdminStats, fetchUsers]);
 
   // Fetch data when section changes
   useEffect(() => {

@@ -2,7 +2,6 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from './AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AdminDashboard from './AdminDashboard/AdminDashboard';
 import '../assets/css/login.css';
 
 export default function Login() {
@@ -10,7 +9,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const [showAdmin, setShowAdmin] = useState(false);
+
   const [isFormReady, setIsFormReady] = useState(false);
 
   // Mock accounts for quick demo/testing in the login UI.

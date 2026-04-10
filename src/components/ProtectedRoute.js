@@ -4,7 +4,7 @@ import { AuthContext } from './AuthContext';
 
 const ProtectedRoute = ({ children, requiredRole }) => {
   const { user, loading } = useContext(AuthContext);
-  const storedToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+  
 
   // Show loader only while validating before user is known
   if (loading && !user) {

@@ -5,7 +5,7 @@ import UserDetails from './UserDetails';
 import { formatDate, formatIncome, getStatusColor, getRoleBadge } from './utils';
 
 const ClientsSection = () => {
-  const { usersData, usersLoading, userDetailsLoading, completedLoansData, completedLoansLoading, activeLoansData, activeLoansLoading, fetchCompletedLoans, fetchActiveLoans, fetchUserById } = useAdminDashboard();
+  const { usersData, usersLoading, completedLoansData, completedLoansLoading, activeLoansData, activeLoansLoading, fetchCompletedLoans, fetchActiveLoans, fetchUserById } = useAdminDashboard();
   const [selectedUser, setSelectedUser] = useState(null);
   const [showUserDetails, setShowUserDetails] = useState(false);
   const [activeTab, setActiveTab] = useState('profile');
