@@ -3,7 +3,6 @@ import { useDashboard } from '../../DashboardContext';
 import { useContext } from 'react';
 import { AuthContext } from '../../../AuthContext';
 import { ToastContext } from '../../../ToastContext';
-import { useContext as useReactContext } from 'react';
 
 
 const ProfileSection = () => {

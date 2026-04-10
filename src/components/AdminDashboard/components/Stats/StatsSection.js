@@ -5,7 +5,7 @@ import { LineChart } from "@mui/x-charts/LineChart";
 import DecryptedText from "../../../DecryptedText";
 
 const StatsSection = () => {
-  const { statsData, statsLoading, fetchAdminStats, pieChartData } = useAdminDashboard();
+  const { statsData, pieChartData } = useAdminDashboard();
 
   return (
     <>

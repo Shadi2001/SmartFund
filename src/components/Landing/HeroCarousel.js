@@ -1,7 +1,7 @@
 import React from "react";
 import "../../assets/css/css/style.css";
 import "../../assets/css/css/bootstrap.min.css";
-import { Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function HeroCarousel() {
   return (
     <div className="header-carousel owl-carousel">
@@ -9,7 +9,7 @@ function HeroCarousel() {
         <img
           src="/img/carousel-2.jpg"
           className="img-fluid w-100"
-          alt="Image"
+          alt="Carousel banner"
         />
         <div className="carousel-caption">
           <div className="container">
@@ -41,25 +41,25 @@ function HeroCarousel() {
                     <div className="d-flex justify-content-end ms-2">
                       <a
                         className="btn btn-md-square btn-light rounded-circle me-2"
-                        href=""
+                        href="/"
                       >
                         <i className="fab fa-facebook-f"></i>
                       </a>
                       <a
                         className="btn btn-md-square btn-light rounded-circle mx-2"
-                        href=""
+                        href="/"
                       >
                         <i className="fab fa-youtube"></i>
                       </a>
                       <a
                         className="btn btn-md-square btn-light rounded-circle mx-2"
-                        href=""
+                        href="/"
                       >
                         <i className="fab fa-instagram"></i>
                       </a>
                       <a
                         className="btn btn-md-square btn-light rounded-circle ms-2"
-                        href=""
+                        href="/"
                       >
                         <i className="fab fa-linkedin-in"></i>
                       </a>

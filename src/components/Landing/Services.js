@@ -36,7 +36,7 @@ function Services() {
                   />
                 </div>
                 <div className="rounded-bottom p-4">
-                  <a href="#" className="h4 d-inline-block mb-4">
+                  <a href="/services" className="h4 d-inline-block mb-4">
                     {
                       [
                         "Strategy Consulting",

@@ -2,9 +2,8 @@ import React from 'react';
 import { useAdminDashboard } from '../../AdminDashboardContext';
 import AdminNotificationsDropdown from './AdminNotificationsDropdown';
 
-const Header = ({ setSection }) => {
+const Header = () => {
   const { 
-    user, 
     logout
   } = useAdminDashboard();
 

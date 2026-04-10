@@ -6,10 +6,8 @@ const QRModal = () => {
   const { 
     showQRModal, 
     selectedPayment, 
-    paymentProcessing, 
     setShowQRModal, 
-    setSelectedPayment, 
-    processPayment 
+    setSelectedPayment
   } = useDashboard();
   
   const [qrCodeValue, setQrCodeValue] = useState('');

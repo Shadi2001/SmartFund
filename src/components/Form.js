@@ -15,48 +15,48 @@ const initialState = {
 
 export default function Form() {
   const [form, setForm] = useState(initialState);
-  const { setFormData, sendFormData, uploadImage } = useContext(AuthContext);
+  const { sendFormData, uploadImage } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const [error, setError] = useState("");
   const [step, setStep] = useState(1);
   const [contractId, setContractId] = useState(null);
-  const [idImage, setIdImage] = useState(null);
+  const [, setIdImage] = useState(null);
   const [idImagePreview, setIdImagePreview] = useState(null);
   const [idImageUrl, setIdImageUrl] = useState(null);
   // Add state for Proof of Address and Proof of Income
-  const [addressImage, setAddressImage] = useState(null);
+  const [, setAddressImage] = useState(null);
   const [addressImagePreview, setAddressImagePreview] = useState(null);
   const [addressImageUrl, setAddressImageUrl] = useState(null);
-  const [incomeImage, setIncomeImage] = useState(null);
+  const [, setIncomeImage] = useState(null);
   const [incomeImagePreview, setIncomeImagePreview] = useState(null);
   const [incomeImageUrl, setIncomeImageUrl] = useState(null);
   // Add state for dynamic document uploads
-  const [admissionLetter, setAdmissionLetter] = useState(null);
+  const [, setAdmissionLetter] = useState(null);
   const [admissionLetterPreview, setAdmissionLetterPreview] = useState(null);
   const [admissionLetterUrl, setAdmissionLetterUrl] = useState(null);
-  const [feeStructure, setFeeStructure] = useState(null);
+  const [, setFeeStructure] = useState(null);
   const [feeStructurePreview, setFeeStructurePreview] = useState(null);
   const [feeStructureUrl, setFeeStructureUrl] = useState(null);
-  const [diagnosisReports, setDiagnosisReports] = useState(null);
+  const [, setDiagnosisReports] = useState(null);
   const [diagnosisReportsPreview, setDiagnosisReportsPreview] = useState(null);
   const [diagnosisReportsUrl, setDiagnosisReportsUrl] = useState(null);
-  const [doctorsPrescription, setDoctorsPrescription] = useState(null);
+  const [, setDoctorsPrescription] = useState(null);
   const [doctorsPrescriptionPreview, setDoctorsPrescriptionPreview] = useState(null);
   const [doctorsPrescriptionUrl, setDoctorsPrescriptionUrl] = useState(null);
-  const [medicalQuotation, setMedicalQuotation] = useState(null);
+  const [, setMedicalQuotation] = useState(null);
   const [medicalQuotationPreview, setMedicalQuotationPreview] = useState(null);
   const [medicalQuotationUrl, setMedicalQuotationUrl] = useState(null);
-  const [businessPlan, setBusinessPlan] = useState(null);
+  const [, setBusinessPlan] = useState(null);
   const [businessPlanPreview, setBusinessPlanPreview] = useState(null);
   const [businessPlanUrl, setBusinessPlanUrl] = useState(null);
-  const [projectQuotations, setProjectQuotations] = useState(null);
+  const [, setProjectQuotations] = useState(null);
   const [projectQuotationsPreview, setProjectQuotationsPreview] = useState(null);
   const [projectQuotationsUrl, setProjectQuotationsUrl] = useState(null);
-  const [proofOfBusiness, setProofOfBusiness] = useState(null);
+  const [, setProofOfBusiness] = useState(null);
   const [proofOfBusinessPreview, setProofOfBusinessPreview] = useState(null);
   const [proofOfBusinessUrl, setProofOfBusinessUrl] = useState(null);
-  const [collateralDocs, setCollateralDocs] = useState(null);
+  const [, setCollateralDocs] = useState(null);
   const [collateralDocsPreview, setCollateralDocsPreview] = useState(null);
   const [collateralDocsUrl, setCollateralDocsUrl] = useState(null);
 
@@ -99,7 +99,7 @@ export default function Form() {
         loanTerm: resolvedLoanTerm || prev.loanTerm,
       }));
     }
-  }, [location.search, location.state]);
+  }, [location]);
 
   const handleNext = async (e) => {
     e.preventDefault();

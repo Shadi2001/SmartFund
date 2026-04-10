@@ -21,23 +21,21 @@ const Navigation = ({ section, setSection }) => {
 
   return (
     <nav className="sidebar-nav">
-      <a
-        href="#"
+      <button
+        type="button"
         className={`sidebar-nav-item ${section === "fund" ? "active" : ""}`}
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           setSection("fund");
         }}
       >
         <i className="fas fa-chart-line"></i>
         Fund Dashboard
-      </a>
+      </button>
       
-      <a
-        href="#"
+      <button
+        type="button"
         className={`sidebar-nav-item ${section === "sponsors" ? "active" : ""}`}
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           setSection("sponsors");
           if (sponsors.length === 0 && !sponsorsLoading) {
             fetchSponsors();
@@ -46,13 +44,12 @@ const Navigation = ({ section, setSection }) => {
       >
         <i className="fas fa-users"></i>
         Sponsors
-      </a>
+      </button>
       
-      <a
-        href="#"
+      <button
+        type="button"
         className={`sidebar-nav-item ${section === "pending" ? "active" : ""}`}
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           setSection("pending");
           if (pendingContracts.length === 0 && !pendingContractsLoading) {
             fetchPendingContracts();
@@ -61,14 +58,13 @@ const Navigation = ({ section, setSection }) => {
       >
         <i className="fas fa-clock"></i>
         Pending Contracts
-      </a>
+      </button>
       
       {/* Apply Form Button */}
-      <a
-        href="#"
+      <button
+        type="button"
         className={`sidebar-nav-item ${user?.loanStatus?.hasActiveLoan ? 'disabled' : ''}`}
-        onClick={(e) => {
-          e.preventDefault();
+        onClick={() => {
           if (!user?.loanStatus?.hasActiveLoan) {
             handleApplyForm();
           }
@@ -87,7 +83,7 @@ const Navigation = ({ section, setSection }) => {
             (Active Loan)
           </span>
         )}
-      </a>
+      </button>
     </nav>
   );
 };

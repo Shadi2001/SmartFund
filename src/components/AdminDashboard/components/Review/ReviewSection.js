@@ -9,7 +9,6 @@ const ReviewSection = () => {
     loading,
     error,
     showRejectionModal,
-    rejectingDocument,
     rejectionReason,
     adminNotes,
     fetchPendingContracts,

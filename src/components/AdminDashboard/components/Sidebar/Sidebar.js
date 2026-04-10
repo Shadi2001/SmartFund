@@ -23,7 +23,7 @@ const Sidebar = ({ section, setSection }) => {
       id: "review",
       label: "Review",
       icon: "fas fa-file-contract",
-      badge: pendingContracts.length==0 ? null : pendingContracts.length
+      badge: pendingContracts.length === 0 ? null : pendingContracts.length
     }
     ,
     {

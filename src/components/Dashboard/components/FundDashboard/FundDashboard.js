@@ -8,7 +8,6 @@ import PaymentHistory from './PaymentHistory';
 const FundDashboard = () => {
   const { 
     selectedLoanData, 
-    selectedLoan, 
     selectedLoanLoading, 
     setSelectedLoan, 
     setSelectedLoanData,

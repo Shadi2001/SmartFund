@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import { AuthContext } from "../AuthContext";
 import { ToastContext } from "../ToastContext";
 
@@ -278,7 +284,7 @@ export const AdminDashboardProvider = ({ children }) => {
   const [activeLoansLoading, setActiveLoansLoading] = useState(false);
 
   // Fetch users from API
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     setUsersLoading(true);
     try {
       if (shouldUseMockAdminData()) {
@@ -309,7 +315,7 @@ export const AdminDashboardProvider = ({ children }) => {
     } finally {
       setUsersLoading(false);
     }
-  };
+  }, [ShowHideToast]);
 
   // Fetch a single user's full details by ID
   const fetchUserById = async (userId) => {
@@ -440,7 +446,7 @@ export const AdminDashboardProvider = ({ children }) => {
   };
 
   // Fetch admin dashboard statistics
-  const fetchAdminStats = async () => {
+  const fetchAdminStats = useCallback(async () => {
     // Prevent duplicate requests within 10 seconds (reduced from 30)
     const now = Date.now();
     if (statsLastFetched && now - statsLastFetched < 10000) {
@@ -499,10 +505,10 @@ export const AdminDashboardProvider = ({ children }) => {
     } finally {
       setStatsLoading(false);
     }
-  };
+  }, [statsLastFetched]);
 
   // Fetch pending contracts from API
-  const fetchPendingContracts = async () => {
+  const fetchPendingContracts = useCallback(async () => {
     setLoading(true);
     try {
       if (shouldUseMockAdminData()) {
@@ -548,10 +554,10 @@ export const AdminDashboardProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   //fetch contract documents
-  const fetchContractDocuments = async (contractId) => {
+  const fetchContractDocuments = useCallback(async (contractId) => {
     setLoading(true);
     try {
       if (shouldUseMockAdminData()) {
@@ -603,7 +609,7 @@ export const AdminDashboardProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Document approval/rejection API call
   const handleDocumentAction = async (documentId, action) => {
@@ -815,10 +821,10 @@ export const AdminDashboardProvider = ({ children }) => {
   };
 
   // Initialize data when component mounts - prioritize stats first
-useEffect(() => {
-  fetchAdminStats();
-  fetchUsers();
-}, [fetchAdminStats, fetchUsers]);
+  useEffect(() => {
+    fetchAdminStats();
+    fetchUsers();
+  }, [fetchAdminStats, fetchUsers]);
 
   // Fetch data when section changes
   useEffect(() => {
@@ -834,13 +840,20 @@ useEffect(() => {
     if (section === "clients") {
       fetchUsers();
     }
-  }, [section]);
+  }, [
+    section,
+    fetchPendingContracts,
+    fetchAdminStats,
+    fetchUsers,
+    statsLastFetched,
+    statsData.totalUsers,
+  ]);
 
   useEffect(() => {
     if (selectedContract) {
       fetchContractDocuments(selectedContract.id);
     }
-  }, [selectedContract]);
+  }, [selectedContract, fetchContractDocuments]);
 
   const value = {
     // State

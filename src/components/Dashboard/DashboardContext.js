@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import axios from "axios";
 import { AuthContext } from "../AuthContext";
 import { ToastContext } from "../ToastContext";
@@ -225,7 +231,7 @@ export const DashboardProvider = ({ children }) => {
   const [paymentProcessing, setPaymentProcessing] = useState(false);
 
   // Fetch notifications
-  const fetchNotifications = async () => {
+  const fetchNotifications = useCallback(async () => {
     if (!token) {
       if (shouldUseMockUserDashboard) {
         setNotifications(MOCK_NOTIFICATIONS);
@@ -248,10 +254,10 @@ export const DashboardProvider = ({ children }) => {
     } finally {
       setNotificationsLoading(false);
     }
-  };
+  }, [token, shouldUseMockUserDashboard]);
 
   // Fetch sponsor requests
-  const fetchSponsorRequests = async () => {
+  const fetchSponsorRequests = useCallback(async () => {
     if (!token) return;
 
     setSponsorRequestsLoading(true);
@@ -269,7 +275,7 @@ export const DashboardProvider = ({ children }) => {
     } finally {
       setSponsorRequestsLoading(false);
     }
-  };
+  }, [token]);
 
   // Fetch user loans
   const fetchUserLoans = async () => {
@@ -425,7 +431,7 @@ export const DashboardProvider = ({ children }) => {
   };
 
   // Fetch user profile
-  const fetchUserProfile = async () => {
+  const fetchUserProfile = useCallback(async () => {
     if (!token) {
       if (shouldUseMockUserDashboard) {
         setUserProfileData(MOCK_USER_PROFILE);
@@ -485,7 +491,7 @@ export const DashboardProvider = ({ children }) => {
     } finally {
       setProfileLoading(false);
     }
-  };
+  }, [token, shouldUseMockUserDashboard]);
 
   // Mark notification as read
   const markNotificationAsRead = async (notificationId) => {
@@ -579,7 +585,7 @@ export const DashboardProvider = ({ children }) => {
 
     setPaymentProcessing(true);
     try {
-      const response = await axios.post(
+      await axios.post(
         `http://localhost:3000/api/payments/process/${paymentId}`,
         {},
         {
@@ -637,7 +643,7 @@ export const DashboardProvider = ({ children }) => {
       fetchSponsorRequests();
       fetchUserProfile();
     }
-  }, [token]);
+  }, [token, fetchNotifications, fetchSponsorRequests, fetchUserProfile]);
 
   const value = {
     // State

@@ -39,7 +39,7 @@ function About() {
                   </div>
                 </div>
                 <div className="col-sm-6">
-                  <a href="#" className="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover Now</a>
+                  <a href="/" className="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover Now</a>
                 </div>
                 <div className="col-sm-6">
                   <div className="d-flex">

@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * Bootstrap v5.0.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
@@ -2041,7 +2041,7 @@ textarea.form-control-lg {
   background-size: contain;
   border: 1px solid rgba(0, 0, 0, 0.25);
   appearance: none;
-  color-adjust: exact;
+  print-color-adjust: exact;
 }
 .form-check-input[type="checkbox"] {
   border-radius: 0.25em;
